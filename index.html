@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+
+   <!--for local-->
+   <base href="/">
+   <!--for github-->
+  <!--<base href="./">-->
+
+
+  
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A trading company.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Arzag">
+  <link rel="apple-touch-icon" href="./icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./favicon.ico"/>
+
+  <title>Arzag</title>
+
+   <!-- to hide popup message in browser -->
+   <!--  <link rel="manifest" href="./manifest.json">-->
+
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    const serviceWorkerVersion = "2485638049";
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="./flutter.js" defer></script>
+
+<!--for Loading while initialize-->
+  <style>
+    body {background-color: #FFFFFF;}
+  
+      .loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+  
+      .loader {
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border: 15px solid;
+        border-top: 16px solid #FFFFFF;
+        border-right: 16px solid #212121;
+        border-bottom: 16px solid #FFFFFF;
+        border-left: 16px solid #212121;
+        width: 25px;
+        height:25px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+      }
+  
+      @-webkit-keyframes spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+  
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+
+<!--pre upload images-->
+<link rel="preload" href="https://mfofpcxmqeggciksinfx.supabase.co/storage/v1/object/public/identification_slides/slides/sesameSeed.jpeg" as="fetch" crossorigin>
+
+<link rel="preload" href="https://mfofpcxmqeggciksinfx.supabase.co/storage/v1/object/public/identification_slides/slides/trisha-downing-pyud8ZaVq4I-unsplash.jpg" as="fetch" crossorigin>
+
+<link rel="preload" href="https://wiamosman.github.io/assets/fonts/MaterialIcons-Regular.otf" as="fetch" crossorigin>
+<link rel="preload" href="https://wiamosman.github.io/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf" as="fetch" crossorigin>
+
+<link rel="preload" href="https://wiamosman.github.io/assets/assets/fonts/roboto/Roboto-Bold.ttf" as="fetch" crossorigin>
+<link rel="preload" href="https://wiamosman.github.io/assets/assets/fonts/roboto/Roboto-Medium.ttf" as="fetch" crossorigin>
+<!--<link rel="preload" href="https://wiamosman.github.io/assets/assets/fonts/Noto_Sans_SC/NotoSansSC-Bold.ttf" as="fetch" crossorigin>
+<link rel="preload" href="https://wiamosman.github.io/assets/assets/fonts/Noto_Sans_SC/NotoSansSC-Medium.ttf" as="fetch" crossorigin>
+-->
+
+
+
+
+
+
+
+</head>
+<body>
+
+<!--for Loading while initialize-->
+  <div class="loading" id="loading">
+    <div class="loader"></div>
+  </div>
+
+  <script>
+    window.addEventListener('load', function(ev) {
+      // Download main.dart.js
+
+      let loading=document.querySelector('#loading');
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine(
+            {useColorEmoji: true,}
+          ).then(function(appRunner) {
+            loading.remove();
+            appRunner.runApp();
+          });
+        }
+      });
+    });
+
+    window.addEventListener('beforeinstallprompt', function (e) {
+e.preventDefault();
+    e.hideMyInstallPromotion();
+
+    return false;
+}); 
+  </script>
+</body>
+</html>
